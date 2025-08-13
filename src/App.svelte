@@ -1,11 +1,9 @@
 <script>
-import Navbar from "./lib/components/Navbar.svelte";
+  import Navbar from "./lib/components/Navbar.svelte";
+  import Tooltip from "./lib/components/Tooltip.svelte";
 </script>
 
-<main>
+<main class="grid h-screen grid-rows-[auto_1fr]">
+  <Tooltip />
   <Navbar />
-  <h1 class=" text-primary text-5xl font-bold">This is a svelte project</h1>
 </main>
-
-<style>
-</style>

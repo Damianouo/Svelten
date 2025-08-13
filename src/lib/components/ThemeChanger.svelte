@@ -1,14 +1,14 @@
 <script>
-let isDark = $state(getStoredTheme());
+  let isDark = $state(getStoredTheme());
 
-function getStoredTheme() {
-  const storedTheme = JSON.parse(localStorage.getItem("theme"));
-  return storedTheme === "dark" ? true : false;
-}
+  function getStoredTheme() {
+    const storedTheme = JSON.parse(localStorage.getItem("theme"));
+    return storedTheme === "dark" ? true : false;
+  }
 
-$effect(() => {
-  localStorage.setItem("theme", JSON.stringify(isDark ? "dark" : "light"));
-});
+  $effect(() => {
+    localStorage.setItem("theme", JSON.stringify(isDark ? "dark" : "light"));
+  });
 </script>
 
 <label class="swap swap-rotate">

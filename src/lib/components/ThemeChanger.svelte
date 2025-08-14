@@ -16,7 +16,7 @@
   <input
     type="checkbox"
     class="theme-controller"
-    value="cinder"
+    value="dark"
     bind:checked={isDark}
   />
 

@@ -1,9 +1,11 @@
 <script>
+  import Board from "./lib/components/Board.svelte";
   import Navbar from "./lib/components/Navbar.svelte";
   import Tooltip from "./lib/components/Tooltip.svelte";
 </script>
 
-<main class="grid h-screen grid-rows-[auto_1fr]">
+<main class="mx-auto grid h-screen grid-rows-[auto_1fr]">
   <Tooltip />
   <Navbar />
+  <Board />
 </main>

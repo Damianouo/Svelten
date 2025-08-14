@@ -40,6 +40,27 @@ class BoardState {
     const { [id]: _deletedList, ...rest } = this.#data;
     this.#data = rest;
   }
+  addCard(listId, cardTitle, cardContent) {
+    const targetList = this.#data[listId];
+    const updatedList = {
+      ...targetList,
+      cards: {
+        ...targetList.cards,
+        [cardTitle]: { id: cardTitle, title: cardTitle, content: cardContent },
+      },
+    };
+    this.#data = { ...this.#data, [listId]: updatedList };
+  }
+  deleteCard(listId, cardId) {
+    const targetCards = this.#data[listId].cards;
+    const { [cardId]: _deletedCard, ...rest } = targetCards;
+
+    const updatedList = {
+      ...this.#data[listId],
+      cards: rest,
+    };
+    this.#data = { ...this.#data, [listId]: updatedList };
+  }
 }
 
 export const board = new BoardState();

@@ -1,4 +1,6 @@
 <script>
+  import AddInput from "./AddInput.svelte";
+
   const { listData } = $props();
 </script>
 
@@ -21,8 +23,8 @@
       >
     </button>
   </div>
-  {#each listData.cards as card (card.id)}
+  {#each Object.values(listData.cards) as card (card.id)}
     <button class="btn btn-primary btn-soft">{card.title}</button>
   {/each}
-  <button class="btn btn-primary">Add Card</button>
+  <AddInput {listData} />
 </li>

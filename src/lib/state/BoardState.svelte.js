@@ -4,22 +4,38 @@ class BoardState {
       id: "list-1",
       title: "To-Do",
       cards: {
-        "card-1": { id: "card-1", title: "Learn Svelte 5 $state" },
-        "card-2": { id: "card-2", title: "Create Card component" },
+        "card-1": {
+          id: "card-1",
+          title: "Learn Svelte 5 $state",
+          desc: "Master Svelte 5 $state, ",
+        },
+        "card-2": {
+          id: "card-2",
+          title: "Create Card component",
+          desc: "Card component would display the card",
+        },
       },
     },
     "list-2": {
       id: "list-2",
       title: "In Progress",
       cards: {
-        "card-3": { id: "card-3", title: "Create List component" },
+        "card-3": {
+          id: "card-3",
+          title: "Create List component",
+          desc: "List component could showcase the list",
+        },
       },
     },
     "list-3": {
       id: "list-3",
       title: "Done",
       cards: {
-        "card-4": { id: "card-4", title: "Read Svelte Docs" },
+        "card-4": {
+          id: "card-4",
+          title: "Read Svelte Docs",
+          desc: "Just read it, its really not that hard",
+        },
       },
     },
   });
@@ -40,16 +56,21 @@ class BoardState {
     const { [id]: _deletedList, ...rest } = this.#data;
     this.#data = rest;
   }
-  addCard(listId, cardTitle, cardContent) {
-    const targetList = this.#data[listId];
-    const updatedList = {
-      ...targetList,
-      cards: {
-        ...targetList.cards,
-        [cardTitle]: { id: cardTitle, title: cardTitle, content: cardContent },
-      },
+  addCard(listId, cardTitle, cardDesc) {
+    if (this.#data[listId].cards[cardTitle]) {
+      return {
+        success: false,
+        message: "A card with the same title already exists in this list.",
+      };
+    }
+
+    this.#data[listId].cards[cardTitle] = {
+      id: cardTitle,
+      title: cardTitle,
+      desc: cardDesc,
     };
-    this.#data = { ...this.#data, [listId]: updatedList };
+
+    return { success: true };
   }
   deleteCard(listId, cardId) {
     const targetCards = this.#data[listId].cards;

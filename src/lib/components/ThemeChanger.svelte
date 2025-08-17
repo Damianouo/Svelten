@@ -3,7 +3,7 @@
 
   function getStoredTheme() {
     const storedTheme = JSON.parse(localStorage.getItem("theme"));
-    return storedTheme === "dark" ? true : false;
+    return storedTheme === "dark";
   }
 
   $effect(() => {
@@ -13,12 +13,7 @@
 
 <label class="swap swap-rotate">
   <!-- this hidden checkbox controls the state -->
-  <input
-    type="checkbox"
-    class="theme-controller"
-    value="dark"
-    bind:checked={isDark}
-  />
+  <input type="checkbox" class="theme-controller" value="dark" bind:checked={isDark} />
 
   <!-- sun icon -->
   <svg

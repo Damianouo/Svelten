@@ -25,3 +25,7 @@
     @apply bg-base-200;
   }
 }
+
+@utility icon {
+  @apply size-6;
+}

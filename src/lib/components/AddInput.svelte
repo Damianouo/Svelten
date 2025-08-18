@@ -1,7 +1,7 @@
 <script>
   import { board } from "../state/BoardState.svelte";
   import { toast } from "svelte-french-toast";
-
+  import XIcon from "./svgs/XIcon.svelte";
   const { listData } = $props();
   let isEntering = $state(false);
   let cardContent = $state({ title: "", desc: "" });
@@ -31,5 +31,10 @@
     placeholder="Card Description"
     bind:value={cardContent.desc}
   ></textarea>
-  <button class="btn btn-primary" onclick={handleAddCard}>Add Card</button>
+  <div class="grid grid-cols-[1fr_auto] items-center gap-2">
+    <button class="btn btn-primary" onclick={handleAddCard}>Add Card</button>
+    <button class="btn btn-ghost btn-circle size-8" onclick={() => (isEntering = false)}
+      ><XIcon class="size-4" /></button
+    >
+  </div>
 {/if}

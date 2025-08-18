@@ -45,6 +45,14 @@ class BoardState {
   }
 
   addList(title) {
+    if (this.#data[title]) {
+      return { success: false, message: "A list with the same title already exists." };
+    }
+
+    if (title.trim() === "") {
+      return { success: false, message: "List title can not be empty." };
+    }
+
     this.#data[title] = {
       id: title,
       title,
@@ -56,6 +64,7 @@ class BoardState {
     const { [id]: _deletedList, ...rest } = this.#data;
     this.#data = rest;
   }
+
   addCard(listId, cardTitle, cardDesc) {
     if (this.#data[listId].cards[cardTitle]) {
       return {
@@ -86,6 +95,7 @@ class BoardState {
 
     return { success: true };
   }
+
   deleteCard(listId, cardId) {
     const targetCards = this.#data[listId].cards;
     const { [cardId]: _deletedCard, ...rest } = targetCards;

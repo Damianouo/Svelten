@@ -1,7 +1,7 @@
 <script>
   import AddInput from "./AddInput.svelte";
   import XIcon from "./svgs/XIcon.svelte";
-
+  import { board } from "";
   const { listData } = $props();
 </script>
 

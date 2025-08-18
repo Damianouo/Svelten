@@ -64,6 +64,20 @@ class BoardState {
       };
     }
 
+    if (cardTitle.trim() === "") {
+      return {
+        success: false,
+        message: "Card title can not be empty.",
+      };
+    }
+
+    if (cardDesc.trim() === "") {
+      return {
+        success: false,
+        message: "Card description can not be empty.",
+      };
+    }
+
     this.#data[listId].cards[cardTitle] = {
       id: cardTitle,
       title: cardTitle,

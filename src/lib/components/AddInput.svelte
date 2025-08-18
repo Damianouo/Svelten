@@ -1,5 +1,7 @@
 <script>
   import { board } from "../state/BoardState.svelte";
+  import { toast } from "svelte-french-toast";
+
   const { listData } = $props();
   let isEntering = $state(false);
   let cardContent = $state({ title: "", desc: "" });
@@ -10,7 +12,7 @@
       isEntering = false;
       cardContent = { title: "", desc: "" };
     } else {
-      console.log(result.message);
+      toast.error(result.message);
     }
   };
 </script>

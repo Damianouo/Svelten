@@ -15,7 +15,7 @@
 
 <div class="mx-auto grid w-full max-w-7xl">
   <ul
-    class=" grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] content-start items-start justify-items-center gap-6 p-6"
+    class=" grid grid-cols-[repeat(auto-fit,288px)] content-start items-start justify-center justify-items-center gap-6 p-6 xl:justify-start"
   >
     {#each Object.values(board.data) as list (list.id)}
       <List listData={list} />

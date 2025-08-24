@@ -1,9 +1,11 @@
 @import "tailwindcss";
 
-@plugin "daisyui";
+@plugin "daisyui" {
+  exclude: rootscrollgutter;
+}
 
 @plugin "daisyui/theme" {
-  name: "autumn";
+  name: "light";
   default: true;
 }
 
@@ -11,19 +13,15 @@
   name: "dark";
   default: false;
 
-  --color-base-100: oklch(13% 0.028 261.692);
-  --color-base-200: oklch(21% 0.034 264.665);
-  --color-base-300: oklch(27% 0.033 256.848);
+  --color-base-100: oklch(13% 0.028 272);
+  --color-base-200: oklch(21% 0.034 278);
+  --color-base-300: oklch(27% 0.033 273);
+  --color-neutral: oklch(39% 0.032 275);
+  --color-neutral-content: oklch(88% 0.006 275);
 }
 @theme {
   --default-font-family: "Noto Sans TC", sans-serif;
   --default-transition-duration: 250ms;
-}
-
-@layer base {
-  :root[data-theme] {
-    @apply bg-base-200;
-  }
 }
 
 @utility icon {

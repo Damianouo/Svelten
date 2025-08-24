@@ -5,7 +5,7 @@
   import Tooltip from "./lib/components/Tooltip.svelte";
 </script>
 
-<main class="mx-auto grid h-screen grid-rows-[auto_1fr]">
+<main class="bg-base-200 mx-auto grid h-screen grid-rows-[auto_1fr]">
   <Toaster />
   <Tooltip />
   <Navbar />

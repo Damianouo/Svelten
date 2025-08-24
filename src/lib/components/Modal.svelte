@@ -1,17 +1,17 @@
 <script>
-  let { card } = $props();
+  let { modalId, text } = $props();
 </script>
 
-<button class="btn" onclick={() => document.getElementById(`${card.id}-dialog`).showModal()}
-  >{card.title}</button
+<button class="btn" onclick={() => document.getElementById(`${modalId}-dialog`).showModal()}
+  >{text}</button
 >
-<dialog id={`${card.id}-dialog`} class="modal">
+<dialog id={`${modalId}-dialog`} class="modal">
   <div class="modal-box mb-[20vh] flex min-h-1/3 flex-col">
     <h3 class="text-lg font-bold">{card.title}</h3>
     <p class="py-4">{card.desc}</p>
 
     <div class="mt-auto text-end">
-      <button class="btn" onclick={() => document.getElementById(`${card.id}-dialog`).close()}
+      <button class="btn" onclick={() => document.getElementById(`${modalId}-dialog`).close()}
         >Close</button
       >
     </div>
